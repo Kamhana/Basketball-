@@ -3,7 +3,7 @@ from random import randint
 
 pygame.init()
 
-screen_width = 1080
+screen_width = 720
 screen_height = 720
 display_output = [screen_width, screen_height]
 screen = pygame.display.set_mode(display_output)
@@ -14,16 +14,16 @@ pygame.display.set_caption("Coba Game")
 basketball = pygame.image.load("Bola_Basket_2.png")
 x = randint(0, screen_width)
 y = 0
-radius = 100
+radius = 50
 ball_rep_x = x + 50
 ball_rep_y = y + 50
 speed = 5
 
-basket = pygame.image.load("Keranjang_3.png")
+basket = pygame.image.load("Keranjang_4.png")
 basket_width = 125
 basket_pos_x = 450
 basket_pos_y = 600
-basket_speed = 10
+basket_speed = 50
 basket_rep_x = [basket_pos_x + 31, basket_pos_x + 94]
 basket_rep_y = [basket_pos_y + 14, basket_pos_y + 20]
 
@@ -86,19 +86,18 @@ def enforce_border():
 
 def check_for_score():
     global score 
-    if ball_rep_x in range(basket_rep_x[0], basket_rep_x[1]) and ball_rep_y in range(basket_rep_y[0], basket_rep_y[1]):
-        score += 1
-        #tick.play()
-    elif ball_rep_y in range(basket_rep_y[0], basket_rep_y[1] and ball_rep_x not in range(basket_rep_x[0], basket_rep_x[1])):
-        score = 0
+    # if ball_rep_x in range(basket_rep_x[0], basket_rep_x[1]) and ball_rep_y in range(basket_rep_y[0], basket_rep_y[1]):
+    #     score += 1
+    #     #tick.play()
+    # elif ball_rep_y in range(basket_rep_y[0], basket_rep_y[1] and ball_rep_x not in range(basket_rep_x[0], basket_rep_x[1])):
+    #     score = 0
 
 
 def show_score():
     score_disp = font.render("Score " + str(score), True, black)
     screen.blit(score_disp, (text_x, text_y))
     
-
-while play:
+while:
     clock.tick(60)
     screen.fill(gray)
     check_for_event()
