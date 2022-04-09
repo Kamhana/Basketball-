@@ -37,7 +37,6 @@ basketball = pygame.image.load('basketball.png')
 score = 0
 play_game = True
 
-
 def display():
     display_court()
     display_basketball(ball_position_x, ball_position_y)
@@ -68,14 +67,12 @@ def check_for_score(x):
                 x -= 1  
     return x
 
-# def display_win():
-    win_condition = font.render("YOU WIN!!")
-    screen.blit(win_condition)
 
-def finish(x):
+def finish(x, text_pos_x, text_pos_y):
     if x == 10:
+        win = font.render("YOU WIN!", True, (0, 0, 0), "green")
+        screen.blit(win, (text_pos_x, text_pos_y))
         time.sleep(1)
-        font.render("YOU WIN !")
         quit()
 
 def display_score(sco, text_pos_x, text_pos_y):
@@ -141,6 +138,6 @@ while play_game:
     update_basket_score_region()
     score = check_for_score(score)
     display_score(score, text_x, text_y)
-    finish(score)
+    finish(score, text_x, text_y)
     pygame.display.flip()
 pygame.quit()
