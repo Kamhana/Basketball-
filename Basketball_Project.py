@@ -11,9 +11,17 @@ pygame.display.set_caption("Basketball game")
 clock = pygame.time.Clock()
 court = pygame.image.load("basketball_court(4).jpg")
 
+screen_display = pygame.display
 text_x = 15
 text_y = 15
 font = pygame.font.Font('freesansbold.ttf', 40)
+green = (0,255,0)
+
+def message_to_screen(msg, color):
+    screen_text = font.render(msg, True, color)
+    screen.blit(screen_text, [300, screen_height/2])
+
+
 
 basket_width = 125
 basket_pos_x = 450
@@ -68,11 +76,15 @@ def check_for_score(x):
     return x
 
 
-def finish(x, text_pos_x, text_pos_y):
-    if x == 10:
-        win = font.render("YOU WIN!", True, (0, 0, 0), "green")
-        screen.blit(win, (text_pos_x, text_pos_y))
-        time.sleep(1)
+def finish(x):
+    if x == 2:
+        message_to_screen("YOU WIN!!!!, CONGRATS!!", green)
+        pygame.display.update()
+        # win = font.render("YOU WIN!", True, (255, 255, 255), "green")
+        # screen.blit(win, (text_x , text_y))
+        # screen_display.set_caption("YOU WIN !")
+        time.sleep(2)
+        pygame.quit()
         quit()
 
 def display_score(sco, text_pos_x, text_pos_y):
@@ -138,6 +150,6 @@ while play_game:
     update_basket_score_region()
     score = check_for_score(score)
     display_score(score, text_x, text_y)
-    finish(score, text_x, text_y)
+    finish(score)
     pygame.display.flip()
 pygame.quit()
