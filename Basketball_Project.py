@@ -77,7 +77,7 @@ def check_for_score(x):
 
 
 def finish(x):
-    if x == 2:
+    if x == 10:
         message_to_screen("YOU WIN!!!!, CONGRATS!!", green)
         pygame.display.update()
         # win = font.render("YOU WIN!", True, (255, 255, 255), "green")
