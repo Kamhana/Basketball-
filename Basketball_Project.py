@@ -80,11 +80,7 @@ def finish(x):
     if x == 10:
         message_to_screen("YOU WIN!!!!, CONGRATS!!", green)
         pygame.display.update()
-        # win = font.render("YOU WIN!", True, (255, 255, 255), "green")
-        # screen.blit(win, (text_x , text_y))
-        # screen_display.set_caption("YOU WIN !")
         time.sleep(2)
-        pygame.quit()
         quit()
 
 def display_score(sco, text_pos_x, text_pos_y):
